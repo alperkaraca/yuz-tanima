@@ -1,0 +1,25 @@
+video:
+  source: data/input_videos/sample.mp4
+  output_video: data/outputs/annotated.mp4
+  output_metrics_json: data/outputs/metrics.json
+  output_metrics_csv: data/outputs/metrics.csv
+  output_heatmap: data/outputs/heatmap.png
+
+processing:
+  detector: retinaface
+  tracker: ocsort
+  score_threshold: 0.5
+  nms_threshold: 0.4
+  min_face_size: 24
+  blur: true
+  blur_level: 15
+  heatmap: true
+  frame_skip: 1
+  half_res: false
+
+runtime:
+  use_cuda: auto
+  batch: 1
+
+logging:
+  level: INFO
