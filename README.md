@@ -13,6 +13,11 @@ Hızlı Başlat
 - Komut:
   `python -m src.main --source data/input_videos/sample.mp4 --detector retinaface --tracker ocsort --blur on --heatmap on --save-annotated data/outputs/out.mp4 --save-metrics data/outputs/metrics.json`
 
+Basit Arayüz (Streamlit)
+- Kurulum sonrası arayüzü başlatın: `streamlit run src/ui/app.py`
+- Tarayıcıda açılan sayfadan videonuzu yükleyin, seçenekleri belirleyip çalıştırın.
+- Çıktılar `data/outputs/` klasörüne kaydedilir ve arayüzden indirilebilir.
+
 Özellikler
 - Yüz tespiti: RetinaFace/MTCNN adapterleri (paket yoksa otomatik Haar Cascade yedek)
 - Takip: OC-SORT/DeepSORT adapterleri (paket yoksa basit SORT benzeri yedek)
@@ -36,6 +41,7 @@ Yapı
 - `src/utils/`: Çizim, video IO, ısı haritası, metrikler, fps, gizlilik
 - `src/pipeline.py`: Uçtan uca akış
 - `src/main.py`: CLI
+- `src/ui/app.py`: Streamlit arayüzü
 - `configs/default.yaml`: Örnek konfig
 
 Örnek Config Alanları
@@ -44,3 +50,7 @@ Yapı
 Kabul Kriterleri
 - Yerel .mp4 ile çalıştırıldığında işlenmiş video, metrik JSON/CSV ve ısı haritası PNG üretilir. Blur=on yüzleri görünür biçimde anonimleştirir.
 
+Repo Temizliği (Veri Takibi Yok)
+- `.gitignore` içinde giriş videoları ve tüm çıktı dosyaları ignore edilir:
+  - `data/input_videos/*` ve `data/outputs/*` versiyon kontrolüne girmez.
+  - Klasörlerin repo’da kalması için `.gitkeep` dosyaları eklenmiştir.
